@@ -12,8 +12,8 @@ const routes: Routes = [
       loadChildren: () => import('../screens/home/home.module').then( m => m.HomePageModule)
     },
    {
-      path: 'radio',
-      loadChildren: () => import('../screens/home/home.module').then( m => m.HomePageModule)
+      path: 'category',
+      loadChildren: () => import('../screens/category/category.module').then( m => m.CategoryPageModule)
     },
    {
       path: 'library',
