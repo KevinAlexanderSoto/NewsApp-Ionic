@@ -1,11 +1,29 @@
 <ion-card>
   <ion-card-header>
-    <ion-card-title>{{article?.title}}</ion-card-title>
-    <ion-card-subtitle>{{article?.author}}</ion-card-subtitle>
+    <ion-card-title (click)="onCardClick()">{{ article?.title }}</ion-card-title>
+    <ion-row class="ion-align-items-center">
+      <ion-col size="6" >
+        <ion-card-subtitle>{{ article?.author }}</ion-card-subtitle>
+      </ion-col>
+      <ion-col size="6" >
+        <ion-button
+          (click)="onCardClick()"
+          expand="block"
+          fill="clear"
+          shape="round"
+        >
+          <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
   </ion-card-header>
-  <ion-img *ngIf="article?.urlToImage" [src]="article?.urlToImage">
+  <ion-img
+    *ngIf="article?.urlToImage"
+    [src]="article?.urlToImage"
+    (click)="onCardClick()"
+  >
   </ion-img>
   <ion-card-content *ngIf="article?.description">
-    {{article?.description}}
+    {{ article?.description }}
   </ion-card-content>
 </ion-card>
