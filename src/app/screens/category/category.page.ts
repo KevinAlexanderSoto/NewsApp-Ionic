@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { SegmentChangeEventDetail } from '@ionic/angular';
 import { IonSegmentCustomEvent } from '@ionic/core';
 import { NewsService } from '../../services/news.service';
@@ -32,4 +32,5 @@ export class CategoryPage implements OnInit {
       this.currentArticles.push(...articles);
     });
   }
+
 }

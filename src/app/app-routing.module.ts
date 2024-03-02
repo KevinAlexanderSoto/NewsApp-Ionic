@@ -5,11 +5,11 @@ const routes: Routes = [
 
   {
     path: '',
-    loadChildren: () => import('./tabs/tabs.module').then( m => m.TabsPageModule)
+    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
   {
-    path: 'category',
-    loadChildren: () => import('./screens/category/category.module').then( m => m.CategoryPageModule)
+    path: 'more',
+    loadChildren: () => import('./screens/more/more.module').then( m => m.MorePageModule)
   },
 ];
 

@@ -9,18 +9,18 @@ const routes: Routes = [
     component: TabsPage,
     children: [{
       path: 'forYou',
-      loadChildren: () => import('../screens/home/home.module').then( m => m.HomePageModule)
+      loadChildren: () => import('../screens/home/home.module').then(m => m.HomePageModule)
     },
-   {
+    {
       path: 'category',
-      loadChildren: () => import('../screens/category/category.module').then( m => m.CategoryPageModule)
+      loadChildren: () => import('../screens/category/category.module').then(m => m.CategoryPageModule)
     },
-   {
+    {
       path: 'library',
-      loadChildren: () => import('../screens/home/home.module').then( m => m.HomePageModule)
+      loadChildren: () => import('../screens/more/more.module').then(m => m.MorePageModule)
     },
 
-  ]
+    ]
   },
   {
     path: '',
@@ -34,4 +34,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class TabsPageRoutingModule {}
+export class TabsPageRoutingModule { }

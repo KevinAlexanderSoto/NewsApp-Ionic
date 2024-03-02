@@ -14,26 +14,6 @@ export class ArticleComponent {
 
   @Input() article: Article | null = null;
   isActionSheetOpen = false;
-
-  constructor() { }
-
-  onCardClick() {
-    const openCapacitorSite = async () => {
-      await Browser.open({ url: this.article?.url ?? 'http://capacitorjs.com/' });
-    };
-    openCapacitorSite();
-  }
-  onMoreIconClick(isOpen: boolean) {
-    this.isActionSheetOpen = isOpen;
-  }
-
-  async onShareArticleClick() {
-    await Share.share({
-      url: this.article?.url ?? 'http://capacitorjs.com/',
-    });
-  }
-  onAddToFavoriteClick() {
-  }
   public actionSheetButtons = [
     {
       text: 'Share',
@@ -57,4 +37,25 @@ export class ArticleComponent {
       },
     }
   ];
+
+  constructor() { }
+
+  onCardClick() {
+    const openCapacitorSite = async () => {
+      await Browser.open({ url: this.article?.url ?? 'http://capacitorjs.com/' });
+    };
+    openCapacitorSite();
+  }
+  onMoreIconClick(isOpen: boolean) {
+    this.isActionSheetOpen = isOpen;
+  }
+
+  async onShareArticleClick() {
+    await Share.share({
+      url: this.article?.url ?? 'http://capacitorjs.com/',
+    });
+  }
+  onAddToFavoriteClick() {
+  }
+
 }
