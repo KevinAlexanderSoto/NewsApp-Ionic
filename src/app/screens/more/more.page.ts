@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Article } from 'src/app/interfaces';
+import { StorageServiceService } from 'src/app/services/storage.service';
 
 @Component({
   selector: 'app-more',
@@ -6,18 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./more.page.scss'],
 })
 export class MorePage implements OnInit {
+  constructor(private storageServiceService: StorageServiceService) { }
 
-
-  ngOnInit() {
-    const todo = "";
+  get favoriteNews(): Article[] {
+    return this.storageServiceService.getFavoriteNews
   }
-  private readonly GH_URL =
-    'https://github.com/capacitor-community/privacy-screen';
-
-  constructor() { }
-
-  public openOnGithub(): void {
-    window.open(this.GH_URL, '_blank');
+  ngOnInit() {
   }
 
 }

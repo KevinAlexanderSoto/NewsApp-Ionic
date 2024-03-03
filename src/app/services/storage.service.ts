@@ -17,11 +17,11 @@ export class StorageServiceService {
   async init() {
     const storage = await this.storage.create();
     this._storage = storage;
+    this.updateArticlesArray();
   }
 
 
   public async setRemoveFavoriteNews(article: Article) {
-    await this.updateArticlesArray();
     if (this._articleArray.some((internalArticle) => internalArticle.title === article.title)) {
       this._articleArray = this._articleArray.filter((internalArticle) => internalArticle.title !== article.title);
     } else {
@@ -31,16 +31,12 @@ export class StorageServiceService {
     this._storage?.set("favoriteArticle", this._articleArray);
   }
 
-  public async getFavoriteNews(): Promise<Article[]> {
-    await this.updateArticlesArray();
-    return this._articleArray
+  get getFavoriteNews(): Article[] {
+    return [... this._articleArray]
   }
 
-  private async updateArticlesArray() {
-    await this._storage?.get("favoriteArticle").then((storageArticle) => {
-      if (storageArticle != null) {
-        this._articleArray = storageArticle
-      }
-    })
+  async updateArticlesArray() {
+    const internalArtucle = await this._storage?.get('favoriteArticle');
+    this._articleArray = internalArtucle;
   }
 }
