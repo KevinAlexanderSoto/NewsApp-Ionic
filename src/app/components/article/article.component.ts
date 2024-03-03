@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Article } from 'src/app/interfaces';
 import { Browser } from '@capacitor/browser';
 import { Share } from '@capacitor/share';
+import { StorageServiceService } from '../../services/storage.service';
 
 
 @Component({
@@ -38,7 +39,9 @@ export class ArticleComponent {
     }
   ];
 
-  constructor() { }
+  constructor(
+    private storageServiceService: StorageServiceService
+  ) { }
 
   onCardClick() {
     const openCapacitorSite = async () => {
@@ -56,6 +59,9 @@ export class ArticleComponent {
     });
   }
   onAddToFavoriteClick() {
+    if (this.article != null) {
+      this.storageServiceService.setRemoveFavoriteNews(this.article);
+    }
   }
 
 }
