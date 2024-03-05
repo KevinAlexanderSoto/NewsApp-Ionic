@@ -18,6 +18,7 @@ export class ArticleComponent {
   public actionSheetButtons = [
     {
       text: 'Share',
+      icon: 'share',
       data: {
         action: 'share',
       },
@@ -25,6 +26,7 @@ export class ArticleComponent {
     },
     {
       text: 'Add to favorites',
+      icon: 'heart',
       data: {
         action: 'addFavorite',
       },
@@ -32,6 +34,7 @@ export class ArticleComponent {
     },
     {
       text: 'Cancel',
+      icon: 'close',
       role: 'cancel',
       data: {
         action: 'cancel',
